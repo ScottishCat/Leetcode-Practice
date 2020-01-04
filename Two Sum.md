@@ -17,6 +17,8 @@ return [0, 1].
 
 **Solution:**
 
+**Cpp**
+
 ```c++
 class Solution {
 public:
@@ -33,6 +35,23 @@ public:
         }
         return res;
     }
+};
+```
+
+**Js**
+
+```javascript
+var twoSum = function(nums, target) {
+    const map = new Map();
+    for (let i = 0; i < nums.length; i++){
+        let temp = map.get(target - nums[i]);
+        if (temp !== undefined){
+            return [temp, i];
+        }
+        
+        map.set(nums[i],i);
+    }
+    return res;
 };
 ```
 

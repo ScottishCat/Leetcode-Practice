@@ -14,7 +14,7 @@ Explanation: 342 + 465 = 807.
 
 
 
-**Solution:**
+**Cpp**
 
 ```c++
 class Solution {
@@ -45,6 +45,30 @@ public:
         
         return head;
     }
+};
+```
+
+**Js**
+
+```javascript
+var addTwoNumbers = function(l1, l2) {
+    let carry = 0;
+    const head = l1;
+    let sum;
+    while (l1 || l2 || carry === 1){
+        sum = l1.val + l2.val + carry;
+        l1.val = sum % 10;
+        carry = Math.floor(sum / 10);
+        
+        if ((!l1.next && l2.next) || (l1.next && !l2.next) || carry === 1){
+            l1.next = l1.next ? l1.next : new ListNode(0);
+            l2.next = l2.next ? l2.next : new ListNode(0);
+        }
+        
+        l1 = l1.next;
+        l2 = l2.next;
+    }
+    return head;
 };
 ```
 
